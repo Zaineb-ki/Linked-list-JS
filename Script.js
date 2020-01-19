@@ -77,8 +77,33 @@ getAt(index){
 }
 
 // Remove at index
+removeAt(index){
+    if (index > 0 && index > this.size) {
+        return
+    }
+    let current = this.head;
+    let previous;
+    let count = 0
+    //Remove the first node
+     if (index ===0) {
+         this.head = current.next;
+     } else {
+         while (count < index) {
+             count ++;
+             previous = current;
+             current = current.next;
+         }
+
+         previous.next = current.next;
+     }
+     this.size--;
+}
 
 // Clear list
+clearList(){
+    this.head = null;
+    this.size = 0;
+}
 
 // Print list data
     printListData(){
@@ -99,4 +124,6 @@ ll.insertFirst(300);
 ll.insertlast(400);
 // ll.inserAt(500, 3)
 
-ll.printListData();
+// ll.printListData();
+
+// ll.getAt(10);
